@@ -1,0 +1,44 @@
+server:
+  port: 8888
+
+  
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    org.springframework.security:
+      security: DEBUG
+  
+    
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5
+    serviceUrl:
+       defaultZone: http://user:password@${domain.name:localhost}:8761/eureka/
+
+    
+spring:  
+  cloud:
+     config:
+       server:
+         git:
+           uri: https://github.com/spring-cloud-samples/config-repo
+           basedir: target/config 
+ 
+
+
+#mongo 
+
+  data:
+    mongodb:
+      uri: mongodb://test:123456@${mongo.host:localhost}:27017/test
+      repositories:
+        enabled: true
+         
+          
+        
+
+
+
+    
+
